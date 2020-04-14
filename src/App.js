@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React ,{useContext} from 'react';
+import './App.scss';
+import Mode from './components/Mode';
+import { AdminContext } from './contexts/AdminContext';
 
 function App() {
+  const {mode} = useContext(AdminContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='app' className={mode === 'dark' ? 'darkapp': 'lightapp' } >
+        <Mode/>
+        
     </div>
   );
-}
+};
 
 export default App;
